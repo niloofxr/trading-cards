@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 744 1039" role="img" aria-labelledby="title desc">
+  <title id="title">Aurelia trading card</title>
+  <desc id="desc">A copper-framed trading card for Aurelia, a desert planet with twin suns, dunes, and a resilient frontier outpost.</desc>
+  <defs>
+    <linearGradient id="bg" x2="0" y2="1"><stop stop-color="#ffe5ad"/><stop offset="1" stop-color="#c96535"/></linearGradient>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#442b59"/><stop offset=".5" stop-color="#c65348"/><stop offset="1" stop-color="#f3a04e"/></linearGradient>
+    <linearGradient id="sand" x2="0" y2="1"><stop stop-color="#e99649"/><stop offset="1" stop-color="#873d35"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-opacity=".3"/></filter>
+    <pattern id="sparkle" width="70" height="70" patternUnits="userSpaceOnUse"><path d="M35 8l4 23 23 4-23 4-4 23-4-23-23-4 23-4z" fill="#fff" opacity=".3"/></pattern>
+  </defs>
+  <rect x="10" y="10" width="724" height="1019" rx="48" fill="#241d2a" filter="url(#shadow)"/>
+  <rect x="24" y="24" width="696" height="991" rx="38" fill="url(#bg)" stroke="#ffd27d" stroke-width="7"/>
+  <path d="M39 149h666v11H39z" fill="#743c35" opacity=".75"/>
+  <text x="62" y="105" font-family="Georgia,serif" font-size="64" font-weight="700" fill="#291d2a">AURELIA</text>
+  <text x="63" y="133" font-family="Arial,sans-serif" font-size="17" letter-spacing="4" fill="#713b36">DESERT WORLD • 07</text>
+  <circle cx="668" cy="89" r="42" fill="#a64d3b" stroke="#ffe1a1" stroke-width="5"/>
+  <circle cx="668" cy="89" r="34" fill="url(#sparkle)"/>
+  <text x="668" y="84" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#fff">RARE</text>
+  <text x="668" y="101" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#fff">✦ ✦ ✦</text>
+
+  <rect x="56" y="180" width="632" height="500" rx="18" fill="#171526"/>
+  <rect x="68" y="192" width="608" height="476" rx="11" fill="url(#sky)"/>
+  <circle cx="184" cy="310" r="48" fill="#ffd77c" opacity=".95"/><circle cx="184" cy="310" r="65" fill="none" stroke="#ffd77c" stroke-width="3" opacity=".28"/>
+  <circle cx="585" cy="273" r="25" fill="#ffbb68" opacity=".9"/><circle cx="585" cy="273" r="38" fill="none" stroke="#ffbb68" stroke-width="2" opacity=".3"/>
+  <path d="M68 520Q205 402 348 520T676 446v222H68z" fill="#e99649"/>
+  <path d="M68 584Q230 468 385 585t291-53v136H68z" fill="url(#sand)"/>
+  <path d="M68 632Q235 535 391 628t285-48v88H68z" fill="#713638" opacity=".9"/>
+  <g fill="none" stroke="#f8bd65" stroke-width="7" opacity=".7"><path d="M105 554q92-52 182-2"/><path d="M432 546q100-52 199-2"/></g>
+  <g transform="translate(367 430)">
+    <path d="M-90 135v-110h180v110" fill="#3b3548" stroke="#171526" stroke-width="10"/>
+    <path d="M-112 25L0-65 112 25" fill="#56465a" stroke="#171526" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M-64 14h128v70H-64z" fill="#e9a65c" stroke="#171526" stroke-width="8"/>
+    <path d="M-45 31h90M-45 51h90M-45 71h90" stroke="#713638" stroke-width="5"/>
+    <path d="M0-65v-43M-20-103h40" stroke="#171526" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="0" cy="-111" r="8" fill="#ffd77c"/>
+    <path d="M-90 135h180" stroke="#ffd27d" stroke-width="9" stroke-linecap="round"/>
+  </g>
+  <text x="92" y="642" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#fff" opacity=".9">TWIN SUNS • FRONTIER OASIS</text>
+
+  <rect x="56" y="710" width="632" height="196" rx="18" fill="#fff1d1" stroke="#9d4d38" stroke-width="4"/>
+  <g font-family="Arial,sans-serif" font-weight="700" fill="#29202d">
+    <text x="88" y="755" font-size="24">POWER</text><text x="650" y="755" text-anchor="end" font-size="30" fill="#a94e38">76</text>
+    <text x="88" y="813" font-size="24">SPEED</text><text x="650" y="813" text-anchor="end" font-size="30" fill="#a94e38">68</text>
+    <text x="88" y="871" font-size="24">CREATIVITY</text><text x="650" y="871" text-anchor="end" font-size="30" fill="#a94e38">91</text>
+  </g>
+  <path d="M240 732v139M240 780h370M240 838h370" stroke="#e4b77b" stroke-width="3"/>
+  <text x="62" y="958" font-family="Georgia,serif" font-size="22" font-style="italic" fill="#3b2930">Where every grain remembers a story, and survival</text>
+  <text x="62" y="987" font-family="Georgia,serif" font-size="22" font-style="italic" fill="#3b2930">is the finest form of exploration.</text>
+</svg>

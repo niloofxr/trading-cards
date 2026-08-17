@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 744 1039" role="img" aria-labelledby="title desc">
+  <title id="title">Verdantia trading card</title>
+  <desc id="desc">A green-framed trading card featuring Verdantia, a jungle planet alive with towering trees, vines, and a luminous moon.</desc>
+  <defs>
+    <linearGradient id="bg" x2="0" y2="1"><stop stop-color="#d9f09e"/><stop offset="1" stop-color="#2d7c58"/></linearGradient>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#123c4a"/><stop offset=".58" stop-color="#227d70"/><stop offset="1" stop-color="#91c86d"/></linearGradient>
+    <linearGradient id="ground" x2="0" y2="1"><stop stop-color="#6eae50"/><stop offset="1" stop-color="#183f35"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-opacity=".3"/></filter>
+    <pattern id="sparkle" width="70" height="70" patternUnits="userSpaceOnUse"><path d="M35 8l4 23 23 4-23 4-4 23-4-23-23-4 23-4z" fill="#fff" opacity=".3"/></pattern>
+  </defs>
+  <rect x="10" y="10" width="724" height="1019" rx="48" fill="#172d2d" filter="url(#shadow)"/>
+  <rect x="24" y="24" width="696" height="991" rx="38" fill="url(#bg)" stroke="#d4ed8a" stroke-width="7"/>
+  <path d="M39 149h666v11H39z" fill="#28614e" opacity=".8"/>
+  <text x="62" y="105" font-family="Georgia,serif" font-size="64" font-weight="700" fill="#163b36">VERDANTIA</text>
+  <text x="63" y="133" font-family="Arial,sans-serif" font-size="17" letter-spacing="4" fill="#2f684c">JUNGLE WORLD • 09</text>
+  <circle cx="668" cy="89" r="42" fill="#3c8a54" stroke="#ecffae" stroke-width="5"/>
+  <circle cx="668" cy="89" r="34" fill="url(#sparkle)"/>
+  <text x="668" y="84" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#fff">RARE</text>
+  <text x="668" y="101" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#fff">✦ ✦ ✦</text>
+
+  <rect x="56" y="180" width="632" height="500" rx="18" fill="#102b2d"/>
+  <rect x="68" y="192" width="608" height="476" rx="11" fill="url(#sky)"/>
+  <circle cx="524" cy="290" r="53" fill="#e8f4ae" opacity=".92"/><circle cx="524" cy="290" r="73" fill="none" stroke="#d5ef9b" stroke-width="4" opacity=".25"/>
+  <path d="M68 420q80-74 166-8t164-16q104-68 210 4v268H68z" fill="#246b54"/>
+  <path d="M68 510q90-88 186-5t172-27q105-82 250 30v160H68z" fill="url(#ground)"/>
+  <g fill="#1b5145" stroke="#123b38" stroke-width="6">
+    <path d="M95 590V282q0-32 23-32t23 32v308z"/><path d="M600 590V267q0-30 22-30t22 30v323z"/>
+    <path d="M176 438V263q0-28 20-28t20 28v175z"/><path d="M504 452V240q0-28 20-28t20 28v212z"/>
+  </g>
+  <g fill="#54a85a" stroke="#246047" stroke-width="5">
+    <ellipse cx="116" cy="287" rx="78" ry="42" transform="rotate(-25 116 287)"/><ellipse cx="178" cy="322" rx="84" ry="39" transform="rotate(22 178 322)"/>
+    <ellipse cx="622" cy="279" rx="86" ry="42" transform="rotate(25 622 279)"/><ellipse cx="550" cy="315" rx="76" ry="38" transform="rotate(-20 550 315)"/>
+    <ellipse cx="266" cy="255" rx="74" ry="35" transform="rotate(-18 266 255)"/><ellipse cx="438" cy="250" rx="75" ry="36" transform="rotate(18 438 250)"/>
+  </g>
+  <g fill="none" stroke="#9be06c" stroke-width="8" stroke-linecap="round"><path d="M150 375q40 65 4 135"/><path d="M570 355q-40 70-4 142"/><path d="M355 385q-48 76 0 157"/></g>
+  <g fill="#d6f184"><circle cx="235" cy="493" r="8"/><circle cx="285" cy="545" r="5"/><circle cx="468" cy="490" r="7"/><circle cx="405" cy="572" r="5"/></g>
+  <text x="92" y="642" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#edffb7" opacity=".9">LIVING CANOPY • MOONLIT WILDS</text>
+
+  <rect x="56" y="710" width="632" height="196" rx="18" fill="#eff8d7" stroke="#3c7d50" stroke-width="4"/>
+  <g font-family="Arial,sans-serif" font-weight="700" fill="#183c38">
+    <text x="88" y="755" font-size="24">POWER</text><text x="650" y="755" text-anchor="end" font-size="30" fill="#2e7f4e">73</text>
+    <text x="88" y="813" font-size="24">SPEED</text><text x="650" y="813" text-anchor="end" font-size="30" fill="#2e7f4e">86</text>
+    <text x="88" y="871" font-size="24">CREATIVITY</text><text x="650" y="871" text-anchor="end" font-size="30" fill="#2e7f4e">95</text>
+  </g>
+  <path d="M240 732v139M240 780h370M240 838h370" stroke="#b6d58c" stroke-width="3"/>
+  <text x="62" y="958" font-family="Georgia,serif" font-size="22" font-style="italic" fill="#244337">Verdantia grows new paths through every shadow,</text>
+  <text x="62" y="987" font-family="Georgia,serif" font-size="22" font-style="italic" fill="#244337">inviting brave explorers to follow the light.</text>
+</svg>

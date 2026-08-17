@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 744 1039" role="img" aria-labelledby="title desc">
+  <title id="title">Cryon trading card</title>
+  <desc id="desc">A silver-framed trading card featuring Cryon, an ice planet beneath an aurora with crystalline mountains.</desc>
+  <defs>
+    <linearGradient id="bg" x2="0" y2="1"><stop stop-color="#dff8ff"/><stop offset="1" stop-color="#719ed0"/></linearGradient>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#102755"/><stop offset=".65" stop-color="#285d91"/><stop offset="1" stop-color="#94d9e8"/></linearGradient>
+    <linearGradient id="ice" x2="0" y2="1"><stop stop-color="#c8f6ff"/><stop offset="1" stop-color="#4c8bc2"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-opacity=".28"/></filter>
+    <pattern id="sparkle" width="70" height="70" patternUnits="userSpaceOnUse"><path d="M35 8l4 23 23 4-23 4-4 23-4-23-23-4 23-4z" fill="#fff" opacity=".34"/></pattern>
+  </defs>
+  <rect x="10" y="10" width="724" height="1019" rx="48" fill="#14213b" filter="url(#shadow)"/>
+  <rect x="24" y="24" width="696" height="991" rx="38" fill="url(#bg)" stroke="#d7f7ff" stroke-width="7"/>
+  <path d="M39 149h666v11H39z" fill="#4779ae" opacity=".8"/>
+  <text x="62" y="105" font-family="Georgia,serif" font-size="64" font-weight="700" fill="#152342">CRYON</text>
+  <text x="63" y="133" font-family="Arial,sans-serif" font-size="17" letter-spacing="5" fill="#35618e">ICE WORLD • 08</text>
+  <circle cx="668" cy="89" r="42" fill="#3274ad" stroke="#eaffff" stroke-width="5"/>
+  <circle cx="668" cy="89" r="34" fill="url(#sparkle)"/>
+  <text x="668" y="84" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#fff">LEGENDARY</text>
+  <text x="668" y="101" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#fff">✦ ✦ ✦</text>
+
+  <rect x="56" y="180" width="632" height="500" rx="18" fill="#0d1931"/>
+  <rect x="68" y="192" width="608" height="476" rx="11" fill="url(#sky)"/>
+  <path d="M115 410Q260 280 355 390T640 300" fill="none" stroke="#8cffd1" stroke-width="28" opacity=".25"/>
+  <path d="M140 420Q275 320 370 414T625 345" fill="none" stroke="#b4ffe4" stroke-width="11" opacity=".46"/>
+  <circle cx="540" cy="292" r="34" fill="#eafaff" opacity=".9"/>
+  <path d="M68 560l128-142 72 82 98-155 116 174 88-96 106 116v129H68z" fill="url(#ice)" stroke="#1e527f" stroke-width="7"/>
+  <path d="M196 418l28 82 44 0-72-82zm170-73l28 97 59 22-87-119zm204 59l29 80 44 8-73-88z" fill="#f4feff" opacity=".9"/>
+  <path d="M68 624q115-55 225 0t209-1 174 8v37H68z" fill="#d7fbff"/>
+  <path d="M114 638q87-28 168 1m172-1q92-30 177 3" fill="none" stroke="#71b5d8" stroke-width="6" opacity=".8"/>
+  <g fill="#eaffff"><circle cx="143" cy="258" r="3"/><circle cx="278" cy="288" r="4"/><circle cx="456" cy="243" r="3"/><circle cx="625" cy="380" r="4"/></g>
+  <text x="92" y="642" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#17365c" opacity=".9">AURORA VEIL • GLACIER CROWN</text>
+
+  <rect x="56" y="710" width="632" height="196" rx="18" fill="#effcff" stroke="#4a82b4" stroke-width="4"/>
+  <g font-family="Arial,sans-serif" font-weight="700" fill="#172542">
+    <text x="88" y="755" font-size="24">POWER</text><text x="650" y="755" text-anchor="end" font-size="30" fill="#2d6fa5">89</text>
+    <text x="88" y="813" font-size="24">SPEED</text><text x="650" y="813" text-anchor="end" font-size="30" fill="#2d6fa5">61</text>
+    <text x="88" y="871" font-size="24">CREATIVITY</text><text x="650" y="871" text-anchor="end" font-size="30" fill="#2d6fa5">96</text>
+  </g>
+  <path d="M240 732v139M240 780h370M240 838h370" stroke="#a9d8eb" stroke-width="3"/>
+  <text x="62" y="958" font-family="Georgia,serif" font-size="22" font-style="italic" fill="#243654">Under its silent aurora, every crystal holds</text>
+  <text x="62" y="987" font-family="Georgia,serif" font-size="22" font-style="italic" fill="#243654">a thousand frozen memories of the stars.</text>
+</svg>

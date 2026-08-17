@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 744 1039" role="img" aria-labelledby="title desc">
+  <title id="title">Pikachu trading card</title>
+  <desc id="desc">A golden framed trading card featuring Pikachu, with Power, Speed, and Creativity stats.</desc>
+  <defs>
+    <linearGradient id="bg" x2="0" y2="1"><stop stop-color="#fff4bd"/><stop offset="1" stop-color="#f6b928"/></linearGradient>
+    <linearGradient id="art" x2="1" y2="1"><stop stop-color="#83d7e5"/><stop offset="1" stop-color="#227ca1"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-opacity=".28"/></filter>
+    <pattern id="sparkle" width="70" height="70" patternUnits="userSpaceOnUse"><path d="M35 8l4 23 23 4-23 4-4 23-4-23-23-4 23-4z" fill="#fff" opacity=".24"/></pattern>
+  </defs>
+  <rect x="10" y="10" width="724" height="1019" rx="48" fill="#161b25" filter="url(#shadow)"/>
+  <rect x="24" y="24" width="696" height="991" rx="38" fill="url(#bg)" stroke="#f9df72" stroke-width="7"/>
+  <path d="M39 149h666v11H39z" fill="#b3780d" opacity=".7"/>
+  <text x="62" y="105" font-family="Georgia,serif" font-size="64" font-weight="700" fill="#1d2430">PIKACHU</text>
+  <text x="63" y="133" font-family="Arial,sans-serif" font-size="17" letter-spacing="5" fill="#865c0b">ELECTRIC FRIEND • 025</text>
+  <circle cx="668" cy="89" r="42" fill="#d99016" stroke="#fff3a0" stroke-width="5"/>
+  <circle cx="668" cy="89" r="34" fill="url(#sparkle)"/>
+  <text x="668" y="84" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#fff">COMMON</text>
+  <text x="668" y="101" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#fff">✦ ✦ ✦</text>
+
+  <rect x="56" y="180" width="632" height="500" rx="18" fill="#101a23"/>
+  <rect x="68" y="192" width="608" height="476" rx="11" fill="url(#art)"/>
+  <path d="M68 560Q220 470 330 555T676 495v173H68z" fill="#55af82" opacity=".85"/>
+  <path d="M68 590Q215 515 340 595t336-52v125H68z" fill="#2f7c67" opacity=".85"/>
+  <g transform="translate(280 255) rotate(-5)">
+    <path d="M75 38L8-54q-11-18 9-25l101 42z" fill="#f7c928" stroke="#28211b" stroke-width="11" stroke-linejoin="round"/>
+    <path d="M245 30l62-102q11-18-9-24l-101 41z" fill="#f7c928" stroke="#28211b" stroke-width="11" stroke-linejoin="round"/>
+    <path d="M22-73l42 17-37 31q-12-22-5-48zm256-7l-40 18 37 29q11-24 3-47z" fill="#27211e"/>
+    <ellipse cx="160" cy="210" rx="145" ry="160" fill="#f9d333" stroke="#28211b" stroke-width="11"/>
+    <ellipse cx="101" cy="176" rx="21" ry="26" fill="#29221e"/><ellipse cx="219" cy="176" rx="21" ry="26" fill="#29221e"/>
+    <circle cx="94" cy="169" r="6" fill="#fff"/><circle cx="212" cy="169" r="6" fill="#fff"/>
+    <circle cx="45" cy="252" r="36" fill="#e95231" stroke="#28211b" stroke-width="8"/><circle cx="275" cy="252" r="36" fill="#e95231" stroke="#28211b" stroke-width="8"/>
+    <path d="M140 245q20 18 40 0" fill="none" stroke="#28211b" stroke-width="8" stroke-linecap="round"/>
+    <path d="M160 266q-17 35-42 31m42-31q17 35 42 31" fill="#e45b48" stroke="#28211b" stroke-width="7"/>
+    <path d="M72 348q-78 67-95 1m306-1q78 67 95 1" fill="none" stroke="#f9d333" stroke-width="43" stroke-linecap="round"/>
+  </g>
+  <text x="92" y="642" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#fff" opacity=".9">THUNDERBOLT • STATIC CHARM</text>
+
+  <rect x="56" y="710" width="632" height="196" rx="18" fill="#fff8dc" stroke="#b3780d" stroke-width="4"/>
+  <g font-family="Arial,sans-serif" font-weight="700" fill="#25252a">
+    <text x="88" y="755" font-size="24">POWER</text><text x="650" y="755" text-anchor="end" font-size="30" fill="#cb7611">82</text>
+    <text x="88" y="813" font-size="24">SPEED</text><text x="650" y="813" text-anchor="end" font-size="30" fill="#cb7611">94</text>
+    <text x="88" y="871" font-size="24">CREATIVITY</text><text x="650" y="871" text-anchor="end" font-size="30" fill="#cb7611">88</text>
+  </g>
+  <path d="M240 732v139M240 780h370M240 838h370" stroke="#e9ce83" stroke-width="3"/>
+  <text x="62" y="958" font-family="Georgia,serif" font-size="22" font-style="italic" fill="#3b3427">A bright spark of courage that turns every challenge</text>
+  <text x="62" y="987" font-family="Georgia,serif" font-size="22" font-style="italic" fill="#3b3427">into an adventure worth smiling about.</text>
+</svg>

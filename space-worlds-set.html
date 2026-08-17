@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Space Worlds — Trading Card Set</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; color: #eef5ff; background: radial-gradient(circle at 50% -10%, #283b6e, #0c1228 55%, #060913); }
+    main { max-width: 1320px; margin: auto; padding: 64px 32px 80px; }
+    header { text-align: center; margin-bottom: 48px; }
+    .eyebrow { color: #9fb8ef; font-size: 12px; letter-spacing: .35em; font-weight: 800; }
+    h1 { margin: 12px 0 10px; font: 700 clamp(42px, 7vw, 76px)/.95 Georgia, serif; letter-spacing: -.04em; }
+    .subtitle { margin: 0; color: #b4c0db; font-size: 17px; }
+    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; align-items: start; }
+    figure { margin: 0; }
+    a { display: block; border-radius: 24px; transition: transform .2s ease, box-shadow .2s ease; }
+    a:hover, a:focus-visible { transform: translateY(-8px); box-shadow: 0 20px 45px #02040c99; outline: 3px solid #bed4ff; outline-offset: 5px; }
+    img { display: block; width: 100%; height: auto; border-radius: 24px; }
+    figcaption { padding: 16px 4px 0; color: #c6d2ec; font-size: 15px; }
+    figcaption strong { color: #fff; }
+    footer { margin-top: 48px; text-align: center; color: #8290b1; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+    @media (max-width: 800px) { main { padding: 40px 18px 56px; } .cards { grid-template-columns: 1fr; max-width: 480px; margin: auto; gap: 40px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="eyebrow">TRADING CARD COLLECTION · 01 / 03</div>
+      <h1>Space Worlds</h1>
+      <p class="subtitle">Three extraordinary planets. Infinite places to explore.</p>
+    </header>
+    <section class="cards" aria-label="Space Worlds trading cards">
+      <figure><a href="desert-planet-card.svg"><img src="desert-planet-card.svg" alt="Aurelia, desert planet trading card"></a><figcaption><strong>01 · Aurelia</strong> — Desert World</figcaption></figure>
+      <figure><a href="ice-planet-card.svg"><img src="ice-planet-card.svg" alt="Cryon, ice planet trading card"></a><figcaption><strong>02 · Cryon</strong> — Ice World</figcaption></figure>
+      <figure><a href="jungle-planet-card.svg"><img src="jungle-planet-card.svg" alt="Verdantia, jungle planet trading card"></a><figcaption><strong>03 · Verdantia</strong> — Jungle World</figcaption></figure>
+    </section>
+    <footer>Space Worlds · Planetary Explorer Set</footer>
+  </main>
+</body>
+</html>
