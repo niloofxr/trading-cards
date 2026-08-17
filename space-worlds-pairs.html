@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Space Worlds — Card Pairs</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; padding: 48px 24px 72px; color: #eef4ff; font-family: system-ui, sans-serif; background: radial-gradient(circle at 50% -10%, #30477f, #101632 50%, #070a16); }
+    header { margin: 0 auto 42px; max-width: 1100px; text-align: center; }
+    .eyebrow { color: #abc1f1; font-size: 12px; font-weight: 800; letter-spacing: .3em; }
+    h1 { margin: 12px 0 8px; font: 700 clamp(42px, 7vw, 72px)/1 Georgia, serif; }
+    p { margin: 0; color: #bbc7e1; }
+    .cards { display: grid; grid-template-columns: repeat(3, minmax(160px, 250px)); gap: 28px; justify-content: center; max-width: 1100px; margin: auto; }
+    .card { position: relative; width: 100%; aspect-ratio: 744 / 1039; border: 5px solid #c7d8ff; border-radius: 20px; overflow: hidden; background: radial-gradient(circle at center, #5275bb 1px, transparent 2px) 0 0 / 22px 22px, linear-gradient(135deg, #17234f, #111936 55%, #385693); box-shadow: 0 14px 30px #0006; transition: transform .2s ease, box-shadow .2s ease; cursor: pointer; padding: 0; }
+    .card:hover { transform: translateY(-7px); box-shadow: 0 22px 38px #0008; }
+    .card::before { content: "✦"; position: absolute; inset: 25%; display: grid; place-items: center; border: 3px solid #a9c7ff; border-radius: 50%; color: #e8f3ff; font-size: clamp(34px, 7vw, 70px); box-shadow: 0 0 25px #8dbdff88, inset 0 0 18px #8dbdff44; }
+    .card img { display: none; width: 100%; height: 100%; object-fit: cover; }
+    .card.flipped img, .card.matched img { display: block; }
+    .card.flipped::before, .card.matched::before { display: none; }
+    .card.matched { cursor: default; box-shadow: 0 0 22px #9fe7c7aa, 0 14px 30px #0006; }
+    .card:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+    @media (max-width: 700px) { .cards { grid-template-columns: repeat(2, minmax(135px, 220px)); gap: 18px; } body { padding: 32px 14px 48px; } }
+  </style>
+</head>
+<body>
+  <header><div class="eyebrow">SPACE WORLDS · CARD PAIRS</div><h1>Six Worlds to Explore</h1><p>Two copies of each planet card.</p></header>
+  <main class="cards" aria-label="Six Space Worlds cards">
+    <button class="card" data-world="aurelia"><img src="./desert-planet-card.svg" alt="Aurelia desert planet card"></button>
+    <button class="card" data-world="aurelia"><img src="./desert-planet-card.svg" alt="Aurelia desert planet card"></button>
+    <button class="card" data-world="cryon"><img src="./ice-planet-card.svg" alt="Cryon ice planet card"></button>
+    <button class="card" data-world="cryon"><img src="./ice-planet-card.svg" alt="Cryon ice planet card"></button>
+    <button class="card" data-world="verdantia"><img src="./jungle-planet-card.svg" alt="Verdantia jungle planet card"></button>
+    <button class="card" data-world="verdantia"><img src="./jungle-planet-card.svg" alt="Verdantia jungle planet card"></button>
+  </main>
+  <script>
+    const cards = [...document.querySelectorAll('.card')];
+    let open = [], locked = false;
+    cards.forEach(card => card.addEventListener('click', () => {
+      if (locked || card.classList.contains('flipped') || card.classList.contains('matched')) return;
+      card.classList.add('flipped'); open.push(card);
+      if (open.length !== 2) return;
+      locked = true;
+      if (open[0].dataset.world === open[1].dataset.world) {
+        open.forEach(item => item.classList.add('matched'));
+        open = []; locked = false;
+      } else {
+        setTimeout(() => { open.forEach(item => item.classList.remove('flipped')); open = []; locked = false; }, 850);
+      }
+    }));
+  </script>
+</body>
+</html>

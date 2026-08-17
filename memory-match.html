@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Space Worlds — Memory Match</title>
+  <style>
+    :root { font-family: Inter, ui-sans-serif, system-ui, sans-serif; color: #eef4ff; background: #080d20; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; overflow-x: hidden; background: radial-gradient(circle at 50% -15%, #314a87, #111735 48%, #070a17); }
+    main { width: min(100% - 32px, 1080px); margin: auto; padding: 42px 0 64px; }
+    header { text-align: center; margin-bottom: 30px; }
+    .eyebrow { color: #a9c0f3; font-size: 12px; font-weight: 800; letter-spacing: .3em; }
+    h1 { margin: 10px 0 8px; font: 700 clamp(38px, 7vw, 70px)/1 Georgia, serif; letter-spacing: -.04em; }
+    header p { margin: 0; color: #b9c5e0; }
+    .hud { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin: 26px auto 34px; }
+    .pill { padding: 10px 18px; border: 1px solid #657db9; border-radius: 999px; background: #172249cc; color: #dce7ff; font-size: 14px; }
+    .pill strong { color: #fff; }
+    .board { display: grid; grid-template-columns: repeat(3, minmax(130px, 220px)); justify-content: center; gap: clamp(14px, 3vw, 28px); perspective: 1200px; }
+    .card { width: 100%; height: clamp(210px, 30vw, 320px); aspect-ratio: 744 / 1039; cursor: pointer; perspective: 900px; border: 0; padding: 0; background: transparent; }
+    .card:focus-visible { outline: 3px solid #fff; outline-offset: 5px; border-radius: 18px; }
+    .card-inner { width: 100%; height: 100%; position: relative; }
+    .face { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 18px; overflow: hidden; box-shadow: 0 14px 28px #0005; transition: opacity .28s ease, transform .28s ease; }
+    .face img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .front { opacity: 0; transform: scale(.97); }
+    .back { display: grid; place-items: center; z-index: 2; border: 4px solid #c7d8ff; background: radial-gradient(circle at center, #324f91 1px, transparent 2px) 0 0 / 22px 22px, linear-gradient(135deg, #17234f, #111936 55%, #385693); }
+    .card.flipped .front, .card.matched .front { opacity: 1; transform: scale(1); z-index: 3; }
+    .card.flipped .back, .card.matched .back { opacity: 0; }
+    .back::before { content: "✦"; display: grid; place-items: center; width: 55%; aspect-ratio: 1; border: 2px solid #a9c7ff; border-radius: 50%; color: #e8f3ff; font-size: clamp(30px, 6vw, 56px); box-shadow: 0 0 25px #8dbdff88, inset 0 0 18px #8dbdff44; }
+    .card.matched { cursor: default; filter: saturate(1.1) drop-shadow(0 0 11px #8cf0c4aa); }
+    .success { position: fixed; z-index: 4; inset: 0; display: grid; place-items: center; pointer-events: none; opacity: 0; transform: scale(.7); font: 800 clamp(42px, 10vw, 110px)/1 Georgia, serif; color: #d8ffe9; text-shadow: 0 0 24px #49e19b, 0 5px #132d50; }
+    .success.show { animation: success .9s ease both; }
+    @keyframes success { 0% { opacity: 0; transform: scale(.7); } 25%,75% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.08); } }
+    .win { position: fixed; z-index: 5; inset: 0; display: grid; place-items: center; background: #060a18d9; opacity: 0; visibility: hidden; transition: opacity .4s ease; }
+    .win.show { opacity: 1; visibility: visible; }
+    .win-title { position: relative; z-index: 3; text-align: center; font: 700 clamp(48px, 11vw, 132px)/.9 Georgia, serif; letter-spacing: -.06em; color: #fff; text-shadow: 0 0 25px #9cc8ff, 0 8px #213769; }
+    .win-title small { display: block; margin-top: 24px; font: 700 15px Inter, sans-serif; letter-spacing: .25em; color: #c7d7ff; }
+    .stack { position: absolute; width: min(30vw, 190px); aspect-ratio: 744 / 1039; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+    .stack img { position: absolute; width: 100%; border-radius: 18px; box-shadow: 0 14px 30px #0009; border: 3px solid #fff; }
+    .stack img:nth-child(1) { transform: rotate(-12deg) translate(-12px, 7px); } .stack img:nth-child(2) { transform: rotate(7deg) translate(13px, -5px); } .stack img:nth-child(3) { transform: rotate(-1deg); }
+    .play-again { position: absolute; z-index: 4; bottom: 8%; left: 50%; transform: translateX(-50%); border: 0; border-radius: 999px; padding: 14px 25px; font-weight: 800; color: #162342; background: #d9f3ff; cursor: pointer; box-shadow: 0 6px 18px #0006; }
+    .play-again:hover { background: #fff; transform: translateX(-50%) translateY(-2px); }
+    .confetti { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+    .confetti i { position: absolute; top: -12%; width: 9px; height: 18px; background: var(--c); animation: fall var(--d) linear infinite; animation-delay: var(--delay); transform: rotate(var(--r)); }
+    @keyframes fall { to { top: 110%; transform: translateX(var(--x)) rotate(720deg); } }
+    @media (max-width: 520px) { main { width: min(100% - 22px, 400px); padding-top: 30px; } .board { gap: 10px; } .face { border-radius: 12px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header><div class="eyebrow">SPACE WORLDS · MEMORY MATCH</div><h1>Find the Worlds</h1><p>Flip two cards. Match every planet to win.</p></header>
+    <div class="hud" aria-live="polite"><div class="pill">Matches <strong id="matches">0 / 3</strong></div><div class="pill">Moves <strong id="moves">0</strong></div></div>
+    <section class="board" id="board" aria-label="Memory match cards">
+      <!-- Static preview fallback; the game script replaces these with a shuffled board. -->
+      <button class="card" aria-label="Face-down card"><span class="card-inner"><span class="face front"><img src="./desert-planet-card.svg" alt="Aurelia card"></span><span class="face back" aria-hidden="true"></span></span></button>
+      <button class="card" aria-label="Face-down card"><span class="card-inner"><span class="face front"><img src="./desert-planet-card.svg" alt="Aurelia card"></span><span class="face back" aria-hidden="true"></span></span></button>
+      <button class="card" aria-label="Face-down card"><span class="card-inner"><span class="face front"><img src="./ice-planet-card.svg" alt="Cryon card"></span><span class="face back" aria-hidden="true"></span></span></button>
+      <button class="card" aria-label="Face-down card"><span class="card-inner"><span class="face front"><img src="./ice-planet-card.svg" alt="Cryon card"></span><span class="face back" aria-hidden="true"></span></span></button>
+      <button class="card" aria-label="Face-down card"><span class="card-inner"><span class="face front"><img src="./jungle-planet-card.svg" alt="Verdantia card"></span><span class="face back" aria-hidden="true"></span></span></button>
+      <button class="card" aria-label="Face-down card"><span class="card-inner"><span class="face front"><img src="./jungle-planet-card.svg" alt="Verdantia card"></span><span class="face back" aria-hidden="true"></span></span></button>
+    </section>
+  </main>
+  <div class="success" id="success" aria-live="polite">success!</div>
+  <div class="win" id="win" aria-modal="true" role="dialog">
+    <div class="confetti" id="confetti"></div>
+    <div class="stack"><img src="./desert-planet-card.svg" alt=""><img src="./ice-planet-card.svg" alt=""><img src="./jungle-planet-card.svg" alt=""></div>
+    <div class="win-title">CONGRATULATIONS<small>YOU FOUND EVERY WORLD</small></div>
+    <button class="play-again" id="playAgain">Play again</button>
+  </div>
+  <script>
+    const worlds = [
+      { id: 'aurelia', name: 'Aurelia', image: './desert-planet-card.svg' },
+      { id: 'cryon', name: 'Cryon', image: './ice-planet-card.svg' },
+      { id: 'verdantia', name: 'Verdantia', image: './jungle-planet-card.svg' }
+    ];
+    const board = document.querySelector('#board'), matchesEl = document.querySelector('#matches'), movesEl = document.querySelector('#moves');
+    const success = document.querySelector('#success'), win = document.querySelector('#win'), confetti = document.querySelector('#confetti');
+    let flipped = [], matched = new Set(), moves = 0, locked = false;
+    const shuffle = cards => cards.sort(() => Math.random() - .5);
+    function makeCard(world, index) {
+      const card = document.createElement('button'); card.className = 'card'; card.dataset.id = world.id; card.dataset.index = index; card.setAttribute('aria-label', 'Face-down card');
+      card.innerHTML = `<span class="card-inner"><span class="face front"><img src="${world.image}" alt="${world.name} card"></span><span class="face back" aria-hidden="true"></span></span>`;
+      card.addEventListener('click', () => flip(card)); return card;
+    }
+    function newGame() {
+      flipped = []; matched = new Set(); moves = 0; locked = false; win.classList.remove('show');
+      board.innerHTML = ''; matchesEl.textContent = '0 / 3'; movesEl.textContent = '0';
+      shuffle(worlds.flatMap(world => [world, world])).forEach((world, i) => board.appendChild(makeCard(world, i)));
+    }
+    function flip(card) {
+      if (locked || flipped.includes(card) || matched.has(card.dataset.id)) return;
+      card.classList.add('flipped'); card.setAttribute('aria-label', `${card.dataset.id} card`); flipped.push(card);
+      if (flipped.length < 2) return;
+      moves++; movesEl.textContent = moves; locked = true; const [first, second] = flipped;
+      if (first.dataset.id === second.dataset.id) {
+        matched.add(first.dataset.id); first.classList.add('matched'); second.classList.add('matched'); flipped = []; locked = false;
+        matchesEl.textContent = `${matched.size} / 3`; success.classList.remove('show'); void success.offsetWidth; success.classList.add('show');
+        if (matched.size === worlds.length) setTimeout(showWin, 700);
+      } else setTimeout(() => { first.classList.remove('flipped'); second.classList.remove('flipped'); first.setAttribute('aria-label', 'Face-down card'); second.setAttribute('aria-label', 'Face-down card'); flipped = []; locked = false; }, 900);
+    }
+    function showWin() { createConfetti(); win.classList.add('show'); }
+    function createConfetti() { confetti.innerHTML = ''; const colors = ['#ffd166','#7be0c3','#9cc8ff','#ff8fab','#fff']; for (let i = 0; i < 80; i++) { const bit = document.createElement('i'); bit.style.cssText = `left:${Math.random()*100}%;--c:${colors[i%colors.length]};--d:${3+Math.random()*4}s;--delay:${Math.random()*2}s;--x:${(Math.random()-.5)*180}px;--r:${Math.random()*360}deg`; confetti.appendChild(bit); } }
+    document.querySelector('#playAgain').addEventListener('click', newGame); newGame();
+  </script>
+</body>
+</html>
