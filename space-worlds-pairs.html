@@ -20,6 +20,10 @@
     .card.flipped::before, .card.matched::before { display: none; }
     .card.matched { cursor: default; box-shadow: 0 0 22px #9fe7c7aa, 0 14px 30px #0006; }
     .card:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+    .levels { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin: -20px auto 28px; }
+    .level { border: 1px solid #667fba; border-radius: 999px; padding: 9px 16px; color: #cbd8f4; background: #172249cc; font-weight: 700; cursor: pointer; }
+    .level.active, .level:hover { color: #162342; background: #d9f3ff; }
+    .status { min-height: 22px; margin: -14px auto 22px; text-align: center; color: #ffd98c; font-weight: 700; }
     .success { position: fixed; z-index: 10; inset: 0; display: grid; place-items: center; pointer-events: none; opacity: 0; transform: scale(.7); color: #e0ffef; font: 800 clamp(48px, 11vw, 120px)/1 Georgia, serif; text-shadow: 0 0 28px #49e19b, 0 6px #132d50; }
     .success.show { animation: success .9s ease both; }
     @keyframes success { 0% { opacity: 0; transform: scale(.7); } 25%, 75% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.08); } }
@@ -42,6 +46,8 @@
 </head>
 <body>
   <header><div class="eyebrow">SPACE WORLDS · MEMORY MATCH</div><h1>Memory Match</h1><p>Find the matching pairs across the galaxy.</p></header>
+  <nav class="levels" aria-label="Challenge levels"><button class="level active" data-level="classic">Classic</button><button class="level" data-level="timed">Time Attack</button><button class="level" data-level="limited">Limited Moves</button></nav>
+  <div class="status" id="status" aria-live="polite">Classic level</div>
   <main class="cards" aria-label="Six Space Worlds cards">
     <button class="card" data-world="aurelia"><img src="./desert-planet-card.svg" alt="Aurelia desert planet card"></button>
     <button class="card" data-world="aurelia"><img src="./desert-planet-card.svg" alt="Aurelia desert planet card"></button>
@@ -63,8 +69,11 @@
     const win = document.querySelector('#win');
     const confetti = document.querySelector('#confetti');
     const board = document.querySelector('.cards');
+    const status = document.querySelector('#status');
     const colors = ['#ffd166', '#7be0c3', '#9cc8ff', '#ff8fab', '#fff'];
+    let level = 'classic', timer = null, seconds = 60, moves = 0;
     function showWin() {
+      clearInterval(timer);
       confetti.innerHTML = '';
       for (let i = 0; i < 90; i++) {
         const bit = document.createElement('i');
@@ -80,17 +89,28 @@
         board.appendChild(card);
       });
       open = []; locked = false;
+      clearInterval(timer); seconds = 60; moves = 0;
+      status.textContent = level === 'timed' ? 'Time Attack · 60 seconds' : level === 'limited' ? 'Limited Moves · 8 moves left' : 'Classic level';
+      if (level === 'timed') timer = setInterval(() => {
+        seconds--; status.textContent = `Time Attack · ${seconds} seconds left`;
+        if (seconds <= 0) { clearInterval(timer); locked = true; status.textContent = 'Time is up — choose a level to try again'; }
+      }, 1000);
     }
     document.querySelector('#playAgain').addEventListener('click', () => {
       win.classList.remove('show');
       shuffleCards();
     });
+    document.querySelectorAll('.level').forEach(button => button.addEventListener('click', () => {
+      document.querySelector('.level.active').classList.remove('active'); button.classList.add('active');
+      level = button.dataset.level; win.classList.remove('show'); shuffleCards();
+    }));
     let open = [], locked = false;
     cards.forEach(card => card.addEventListener('click', () => {
       if (locked || card.classList.contains('flipped') || card.classList.contains('matched')) return;
       card.classList.add('flipped'); open.push(card);
       if (open.length !== 2) return;
-      locked = true;
+      moves++; locked = true;
+      if (level === 'limited') status.textContent = `Limited Moves · ${8 - moves} moves left`;
       if (open[0].dataset.world === open[1].dataset.world) {
         open.forEach(item => item.classList.add('matched'));
         success.classList.remove('show');
@@ -99,7 +119,11 @@
         open = []; locked = false;
         if (cards.filter(item => item.classList.contains('matched')).length === cards.length) setTimeout(showWin, 700);
       } else {
-        setTimeout(() => { open.forEach(item => item.classList.remove('flipped')); open = []; locked = false; }, 850);
+        setTimeout(() => {
+          open.forEach(item => item.classList.remove('flipped')); open = [];
+          if (level === 'limited' && moves >= 8) { locked = true; status.textContent = 'No moves left — choose a level to try again'; }
+          else locked = false;
+        }, 850);
       }
     }));
   </script>
